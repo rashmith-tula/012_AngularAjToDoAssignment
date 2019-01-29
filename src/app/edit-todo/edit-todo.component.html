@@ -1,0 +1,29 @@
+<form [formGroup]="addTodo" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="title"><h5>Title</h5></label>
+    <input 
+      type="text"
+      id="title"
+      formControlName="title"
+      class="form-control">
+    <small 
+      class="help-block">
+    <!-- Show this error here: Please enter a task -->
+    </small>
+  </div>
+  <h5>Priority</h5>
+  <div class="radio" *ngFor="let priority of priorities">
+    <label for="priority">
+      <input 
+        type="radio"
+        formControlName="priorities"
+        [value]="priority">{{priority}}
+    </label>
+  </div>
+  <small 
+    class="help-block">
+    <!-- show this error here: Please select a priority! -->
+  </small>
+  <hr>
+
+  <button class="btn btn-primary add-button" type="submit">ADD</button>
