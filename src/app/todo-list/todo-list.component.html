@@ -1,11 +1,11 @@
 <article class="list">
   <ul class="list-group" *ngFor="let todo of todoList; let i = index">
     <li 
-      [ngClass]="{'list-group-item-success': todo.priority=='High',
-                  'list-group-item-danger': todo.priority=='Low',
-                  'list-group-item-info': todo.priority=='Medium'}" 
+      [ngClass]="{'list-group-item-danger': todo.priority=='High',
+                  'list-group-item-success': todo.priority=='Low',
+                  'list-group-item-warning': todo.priority=='Medium'}" 
       class="list-group-item todo-list">{{ todo.title }} :: {{ todo.priority }}
-      <span class="remove-button">X</span>
+      <span class="remove-button" (click)="onRemove(i)">X</span>
     </li>
   </ul>
 </article>

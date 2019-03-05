@@ -19,10 +19,13 @@ export class EditTodoComponent implements OnInit {
       'title' : new FormControl(null),
       'priorities' : new FormControl('High')
     });
+
   }
 
   onSubmit() {
-    const newTodo = new Todo(this.addTodo.value['title'], this.addTodo.value['priorities']);
+    console.log(this.addTodo.get('title').value);
+    console.log(this.addTodo.get('priorities').value);
+    const newTodo = new Todo(this.addTodo.get('title').value, this.addTodo.get('priorities').value);
     this.todoService.addTodo(newTodo);
     this.addTodo.controls['title'].reset();
   }

@@ -6,9 +6,9 @@
       id="title"
       formControlName="title"
       class="form-control">
-    <small 
-      class="help-block">
-    <!-- Show this error here: Please enter a task -->
+    <small *ngIf="addTodo.get('title').touched && !addTodo.get('title').value"
+      class="help-block text-danger">
+        Please enter a ToDo
     </small>
   </div>
   <h5>Priority</h5>
@@ -26,4 +26,5 @@
   </small>
   <hr>
 
-  <button class="btn btn-primary add-button" type="submit">ADD</button>
+  <button class="btn btn-primary add-button" type="submit" 
+  [disabled]="!addTodo.get('title').value || !addTodo.get('priorities').value">ADD</button>

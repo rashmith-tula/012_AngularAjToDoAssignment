@@ -5,6 +5,8 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class TodoService {
 
+  onUpdate = new Subject();
+
   todoList: Todo[] = [
     new Todo('Go to the Bank', 'High'),
     new Todo('Go to the Gym', 'Medium'),
@@ -20,7 +22,13 @@ export class TodoService {
 
   // Insert new task to the list
   addTodo(todo: Todo) {
-    this.todoList.push(todo);
+    this.todoList.unshift(todo);
+    this.onUpdate.next();
+  }
+
+  removeTodo(i: number) {
+    this.todoList.splice(i, 1);
+    this.onUpdate.next();
   }
 
 }
