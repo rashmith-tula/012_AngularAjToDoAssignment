@@ -8,4 +8,9 @@ small{
 
 .add-button {
     margin-bottom: 20px;
+    width: 35%;
+}
+
+.radio  {
+    display : inline-block;
 }
